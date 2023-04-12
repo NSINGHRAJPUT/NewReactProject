@@ -2,11 +2,11 @@ div.item {
   vertical-align: top;
   display: inline-block;
   text-align: center;
-  margin: auto;
 }
 img {
   background-color: #333;
-  padding: 10%;
+  padding: 0% 10% 0% 10%;
+  margin: auto;
 }
 .caption {
   display: block;
@@ -15,4 +15,8 @@ img {
 .channel,
 .views {
   color: white;
+}
+.title {
+  font-weight: 800;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
