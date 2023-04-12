@@ -1,0 +1,17 @@
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+}
+img {
+  background-color: grey;
+}
+.caption {
+  display: block;
+}
+.title,
+.channel,
+.views {
+  color: white;
+}
