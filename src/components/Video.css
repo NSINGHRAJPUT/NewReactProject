@@ -5,7 +5,8 @@ div.item {
   margin: auto;
 }
 img {
-  background-color: grey;
+  background-color: #333;
+  padding: 10%;
 }
 .caption {
   display: block;
