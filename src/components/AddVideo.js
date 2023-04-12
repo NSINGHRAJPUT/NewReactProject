@@ -1,33 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AddVideo.css";
 
 const initialState = {
   url: "https://placeimg.com/240/120/any",
   time: "1 month",
   channel: "NSRGFX",
+  title: "",
+  views: "",
 };
-const AddVideo = ({ addVideos }) => {
+const AddVideo = ({ addVideos, updateVideo, editableVideo }) => {
   const [video, setVideo] = useState(initialState);
-  let titl, view;
-  const titleHandler = (e) => {
-    titl = e.target.value;
-  };
-  const viewsHandler = (e) => {
-    view = e.target.value;
-  };
+
   const VideoSubmitHandler = (e) => {
     e.preventDefault();
-    setVideo({ ...video, title: titl, views: view });
-    addVideos(video);
+    if (editableVideo) {
+      updateVideo(video);
+    } else {
+      addVideos(video);
+    }
+
+    setVideo(initialState);
   };
+  const changeHandler = (e) => {
+    setVideo({ ...video, [e.target.name]: e.target.value });
+  };
+  useEffect(() => {
+    if (editableVideo) setVideo(editableVideo);
+  }, [editableVideo]);
   return (
     <form>
       <label htmlFor="title">Title</label>
-      <input type="text" onChange={titleHandler}></input>
+      <input
+        type="text"
+        name="title"
+        onChange={changeHandler}
+        placeholder="title"
+        value={video.title}
+      ></input>
       <label htmlFor="Views">Views</label>
-      <input type="text" onChange={viewsHandler}></input>
+      <input
+        type="text"
+        name="views"
+        onChange={changeHandler}
+        placeholder="views"
+        value={video.views}
+      ></input>
       <span> </span>
-      <button onClick={VideoSubmitHandler}>Add Video</button>
+      <button onClick={VideoSubmitHandler}>
+        {editableVideo ? "edit" : "Add"} Video
+      </button>
     </form>
   );
 };

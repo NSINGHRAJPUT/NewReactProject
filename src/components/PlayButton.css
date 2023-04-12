@@ -1,12 +1,13 @@
 button {
   background-color: black;
-  border: 1px solid yellow;
+  border: 1px solid rgba(0, 255, 132, 0.186);
   padding: 1em;
   border-radius: 1em;
   color: white;
   cursor: pointer;
 }
 button:hover {
-  background-color: black;
-  color: white;
+  background-color: rgba(18, 164, 20, 0.338);
+  border: 1px solid rgba(0, 255, 8, 0.655);
+  color: rgb(233, 48, 7);
 }

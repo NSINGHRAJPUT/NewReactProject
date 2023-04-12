@@ -1,8 +1,26 @@
 import "./Video.css";
 
-const Video = ({ url, title, channel, views, time, children }) => {
+const Video = ({
+  id,
+  url,
+  title,
+  channel,
+  views,
+  time,
+  children,
+  deleteVideo,
+  editVideo,
+}) => {
   return (
     <div className="item">
+      <div>
+        <button className="close" onClick={() => deleteVideo(id)}>
+          X
+        </button>
+        <button className="edit" onClick={() => editVideo(id)}>
+          !
+        </button>
+      </div>
       <img src={url} alt="" />
       <div className="caption">
         <div className="title">{title}</div>
