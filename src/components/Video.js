@@ -1,5 +1,6 @@
 import "./Video.css";
 import useVideoDispatch from "../hooks/VideosDispatch";
+import { useEffect } from "react";
 
 const Video = ({
   id,
@@ -12,6 +13,14 @@ const Video = ({
   editVideo,
 }) => {
   const dispatch = useVideoDispatch();
+  useEffect(() => {
+    // const idx = setInterval(() => {
+    //   console.log("video Playing", id);
+    // }, 2000);
+    // return () => {
+    //   clearInterval(idx);
+    // };
+  }, [id]);
   return (
     <div className="item">
       <div>
