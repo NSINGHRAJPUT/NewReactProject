@@ -8,13 +8,16 @@ const Video = ({
   views,
   time,
   children,
-  deleteVideo,
+  dispatch,
   editVideo,
 }) => {
   return (
     <div className="item">
       <div>
-        <button className="close" onClick={() => deleteVideo(id)}>
+        <button
+          className="close"
+          onClick={() => dispatch({ type: "DELETE", payload: id })}
+        >
           X
         </button>
         <button className="edit" onClick={() => editVideo(id)}>

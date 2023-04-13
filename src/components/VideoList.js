@@ -1,7 +1,7 @@
 import Video from "./Video";
 import PlayButton from "./PlayButton";
 
-const VideoList = ({ videos, deleteVideo, editVideo }) => {
+const VideoList = ({ videos, dispatch, editVideo }) => {
   return (
     <>
       {videos.map((item, index) => (
@@ -13,7 +13,7 @@ const VideoList = ({ videos, deleteVideo, editVideo }) => {
           channel={item.channel}
           views={item.views}
           time={item.time}
-          deleteVideo={deleteVideo}
+          dispatch={dispatch}
           editVideo={editVideo}
         >
           <PlayButton
