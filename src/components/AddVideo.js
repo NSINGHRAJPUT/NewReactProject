@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./AddVideo.css";
 import useVideoDispatch from "../hooks/VideosDispatch";
 
@@ -12,6 +12,7 @@ const initialState = {
 const AddVideo = ({ editableVideo }) => {
   const dispatch = useVideoDispatch();
   const [video, setVideo] = useState(initialState);
+  const inputRef = useRef(null);
 
   const VideoSubmitHandler = (e) => {
     e.preventDefault();
@@ -28,11 +29,14 @@ const AddVideo = ({ editableVideo }) => {
   };
   useEffect(() => {
     if (editableVideo) setVideo(editableVideo);
+
+    inputRef.current.focus();
   }, [editableVideo]);
   return (
     <form>
       <label htmlFor="title">Title</label>
       <input
+        ref={inputRef}
         type="text"
         name="title"
         onChange={changeHandler}
