@@ -3,7 +3,6 @@ import "./App.css";
 import AddVideo from "./components/AddVideo";
 import VideoData from "./Data/Data";
 import VideoList from "./components/VideoList";
-//import ThemeContext from "./context/ThemeContext";
 import VideoContext from "./context/VideoContext";
 import VideoDispatchContext from "./context/VideoDispatchContext";
 
@@ -32,11 +31,11 @@ function App() {
 
   // const addVideos = (video) => {
   //   dispatch({ type: "ADD", payload: video });
-  // };
+  // }
   // const deleteVideo = (id) => {
   //   dispatch({ type: "DELETE", payload: id });
   //setVideos(videos.filter((vid) => vid.id !== id));
-  //};
+  //}
   const editVideo = (id) => {
     setEditableVideo(videos.find((vid) => vid.id === id));
   };
