@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddVideo.css";
-import VideoDispatchContext from "../context/VideoDispatchContext";
+import useVideoDispatch from "../hooks/VideosDispatch";
 
 const initialState = {
   url: "https://placeimg.com/240/120/any",
@@ -10,7 +10,7 @@ const initialState = {
   views: "",
 };
 const AddVideo = ({ editableVideo }) => {
-  const dispatch = useContext(VideoDispatchContext);
+  const dispatch = useVideoDispatch();
   const [video, setVideo] = useState(initialState);
 
   const VideoSubmitHandler = (e) => {
