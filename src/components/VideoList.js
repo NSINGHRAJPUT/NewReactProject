@@ -1,7 +1,10 @@
 import Video from "./Video";
 import PlayButton from "./PlayButton";
+import { useContext } from "react";
+import VideoContext from "../context/VideoContext";
 
-const VideoList = ({ videos, dispatch, editVideo }) => {
+const VideoList = ({ editVideo }) => {
+  const videos = useContext(VideoContext);
   return (
     <>
       {videos.map((item, index) => (
@@ -13,7 +16,6 @@ const VideoList = ({ videos, dispatch, editVideo }) => {
           channel={item.channel}
           views={item.views}
           time={item.time}
-          dispatch={dispatch}
           editVideo={editVideo}
         >
           <PlayButton

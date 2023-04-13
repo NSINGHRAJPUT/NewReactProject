@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./Video.css";
+import VideoDispatchContext from "../context/VideoDispatchContext";
 
 const Video = ({
   id,
@@ -8,9 +10,9 @@ const Video = ({
   views,
   time,
   children,
-  dispatch,
   editVideo,
 }) => {
+  const dispatch = useContext(VideoDispatchContext);
   return (
     <div className="item">
       <div>

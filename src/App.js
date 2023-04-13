@@ -3,6 +3,9 @@ import "./App.css";
 import AddVideo from "./components/AddVideo";
 import VideoData from "./Data/Data";
 import VideoList from "./components/VideoList";
+//import ThemeContext from "./context/ThemeContext";
+import VideoContext from "./context/VideoContext";
+import VideoDispatchContext from "./context/VideoDispatchContext";
 
 function App() {
   const [editableVideo, setEditableVideo] = useState(null);
@@ -25,6 +28,8 @@ function App() {
   const [videos, dispatch] = useReducer(videoReducer, VideoData);
   // const [videos, setVideos] = useState(VideoData);
 
+  //const themeContext = useContext(ThemeContext);
+
   // const addVideos = (video) => {
   //   dispatch({ type: "ADD", payload: video });
   // };
@@ -43,17 +48,15 @@ function App() {
   //setVideos(newVideos);
   //};
   return (
-    <div className="app">
-      <h2>NSRTUBE</h2>
-      <AddVideo dispatch={dispatch} editableVideo={editableVideo}>
-        Add Video
-      </AddVideo>
-      <VideoList
-        videos={videos}
-        dispatch={dispatch}
-        editVideo={editVideo}
-      ></VideoList>
-    </div>
+    <VideoContext.Provider value={videos}>
+      <VideoDispatchContext.Provider value={dispatch}>
+        <div className="app">
+          <h2>NSRTUBE</h2>
+          <AddVideo editableVideo={editableVideo}>Add Video</AddVideo>
+          <VideoList editVideo={editVideo}></VideoList>
+        </div>
+      </VideoDispatchContext.Provider>
+    </VideoContext.Provider>
   );
 }
 
